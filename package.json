@@ -3,4 +3,38 @@
   "version": "1.0.0",
   "description": "Comprehensive placement guide for CBIT students with company insights, preparation resources, and placement statistics",
   "main": "index.html",
-  "scripts
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=3000",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/cbit-placement-guide.git"
+  },
+  "keywords": [
+    "cbit",
+    "placement",
+    "students",
+    "jobs",
+    "career",
+    "preparation",
+    "companies",
+    "interview",
+    "coding",
+    "aptitude"
+  ],
+  "author": "CBIT Students",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/cbit-placement-guide/issues"
+  },
+  "homepage": "https://github.com/yourusername/cbit-placement-guide#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
