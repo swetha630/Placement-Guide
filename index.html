@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBIT Placement Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span class="fw-bold">CBIT Placements</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#companies">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#preparation">Preparation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stats">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contribute">Contribute</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold text-white mb-4 animate__animated animate__fadeInUp">
+                        Find Your Dream Placement
+                    </h1>
+                    <p class="lead text-white-50 mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                        Comprehensive placement guide for CBIT students with company insights, preparation resources, and success statistics
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-container mb-5 animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bg-white border-0">
+                                <i class="fas fa-search text-primary"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Search companies, skills, or packages..." id="searchInput">
+                            <button class="btn btn-warning" type="button" id="filterBtn">
+                                <i class="fas fa-filter me-2"></i>Filter
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <a href="#companies" class="btn btn-warning btn-lg px-5 animate__animated animate__fadeInUp animate__delay-3s">
+                        Explore Companies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Panel -->
+    <div id="filterPanel" class="filter-panel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">Company Type</label>
+                    <select class="form-select" id="companyTypeFilter">
+                        <option value="">All Types</option>
+                        <option value="Product">Product</option>
+                        <option value="Service">Service</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Package Range</label>
+                    <select class="form-select" id="packageFilter">
+                        <option value="">All Packages</option>
+                        <option value="0-5">0-5 LPA</option>
+                        <option value="5-10">5-10 LPA</option>
+                        <option value="10-20">10-20 LPA</option>
+                        <option value="20+">20+ LPA</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Skills</label>
+                    <select class="form-select" id="skillsFilter">
+                        <option value="">All Skills</option>
+                        <option value="DSA">DSA</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Cloud">Cloud</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-outline-primary w-100" id="clearFilters">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Companies Section -->
+    <section id="companies" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 fw-bold mb-3">Top Recruiting Companies</h2>
+                    <p class="lead text-muted">Discover companies that actively recruit from CBIT</p>
+                </div>
+            </div>
+            
+            <div class="row" id="companiesGrid">
+                <!-- Companies will be loaded dynamically -->
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-primary btn-lg" id="loadMoreBtn">
+                    <i class="fas fa-plus-circle me-2"></i>Load More Companies
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preparation Section -->
+    <section id="preparation" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 fw-bold mb-3">Master Your Skills</h2>
+                    <p class="lead text-muted">Comprehensive preparation resources for placement success</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card prep-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="prep-icon mb-3">
+                                <i class="fas fa-calculator fa-3x text-primary"></i>
+                            </div>
+                            <h4 class="card-title">Aptitude</h4>
+                            <p class="card-text text-muted">Master quantitative, logical, and verbal reasoning</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>Quantitative Aptitude</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Logical Reasoning</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Verbal Ability</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Time Management</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100">Start Practice</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card prep-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="prep-icon mb-3">
+                                <i class="fas fa-code fa-3x text-success"></i>
+                            </div>
+                            <h4 class="card-title">Coding</h4>
+                            <p class="card-text text-muted">Data structures, algorithms, and programming</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>DSA Topics</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Practice Platforms</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Contest Strategy</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Mock Interviews</li>
+                            </ul>
+                            <a href="#" class="btn btn-success w-100">Start Coding</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card prep-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="prep-icon mb-3">
+                                <i class="fas fa-comments fa-3x text-warning"></i>
+                            </div>
+                            <h4 class="card-title">HR Preparation</h4>
+                            <p class="card-text text-muted">Interview skills and communication</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>Common Questions</li>
+                                <li><i class="fas fa-check text-success me-2"></i>STAR Method</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Mock Interviews</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Resume Building</li>
+                            </ul>
+                            <a href="#" class="btn btn-warning w-100">Prepare Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card prep-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="prep-icon mb-3">
+                                <i class="fas fa-book fa-3x text-info"></i>
+                            </div>
+                            <h4 class="card-title">Resources</h4>
+                            <p class="card-text text-muted">Curated study materials and guides</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>Coding Platforms</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Aptitude Books</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Interview Guides</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Previous Papers</li>
+                            </ul>
+                            <a href="#" class="btn btn-info w-100">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 fw-bold mb-3">Placement Statistics</h2>
+                    <p class="lead">CBIT placement insights and trends</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card bg-white text-dark h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Overall Placement</h5>
+                            <div class="stat-circle mb-3">
+                                <canvas id="placementChart" width="200" height="200"></canvas>
+                            </div>
+                            <div class="stats-info">
+                                <p class="mb-1"><strong>2023:</strong> 85%</p>
+                                <p class="mb-1"><strong>2022:</strong> 82%</p>
+                                <p class="mb-1"><strong>2021:</strong> 78%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card bg-white text-dark h-100">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Package Distribution</h5>
+                            <canvas id="packageChart" width="200" height="200"></canvas>
+                            <div class="stats-info mt-3">
+                                <p class="mb-1"><strong>Average:</strong> 5.2 LPA</p>
+                                <p class="mb-1"><strong>Highest:</strong> 28 LPA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card bg-white text-dark h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Top Recruiters</h5>
+                            <div class="recruiter-list">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>1. TCS</span>
+                                    <span class="badge bg-primary">45 students</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>2. Infosys</span>
+                                    <span class="badge bg-primary">38 students</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>3. Wipro</span>
+                                    <span class="badge bg-primary">32 students</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>4. Accenture</span>
+                                    <span class="badge bg-primary">28 students</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>5. Capgemini</span>
+                                    <span class="badge bg-primary">25 students</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3">View Detailed Stats</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-envelope me-2"></i> placement@cbit.ac.in</p>
+                    <p><i class="fas fa-phone me-2"></i> +91-40-2401-5421</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> CBIT Campus, Gandipet, Hyderabad</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Mission</h5>
+                    <p>Built by CBIT students for CBIT students. Our mission is to help every student crack their dream placement with comprehensive resources and guidance.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#companies" class="text-white-50">Companies Database</a></li>
+                        <li><a href="#preparation" class="text-white-50">Preparation Resources</a></li>
+                        <li><a href="#" class="text-white-50">Mock Test Platform</a></li>
+                        <li><a href="#" class="text-white-50">Previous Papers</a></li>
+                        <li><a href="#" class="text-white-50">Success Stories</a></li>
+                        <li><a href="#contribute" class="text-white-50">Contribute Data</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 CBIT Placement Guide | Made with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Company Details Modal -->
+    <div class="modal fade" id="companyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCompanyName"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
